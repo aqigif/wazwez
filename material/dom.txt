@@ -1,0 +1,33 @@
+
+// js dom => document object model
+
+// const html = {
+//   head: {
+//     title : "wazwez"
+//   },
+//   body: {
+//     header: [
+//       logo
+//       usermenu
+//     ],
+//     main {
+//       container {
+//         headerContainer
+//         content : {
+//           listing
+//         }
+//       }
+//     }
+//   }
+// }
+
+// js dom
+memanipulasi/berinteraksi dengan document => html css
+
+memanipulasi => select salah satu element 
+p => deskripsi sekolah => deskripsi kuliah
+
+berinteraksi => ada tombol tambah tugas => munculin form tambah tugas
+=> ada accordion task => munculin subtask
+
+

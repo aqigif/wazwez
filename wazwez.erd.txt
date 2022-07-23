@@ -1,0 +1,25 @@
+DATABASE NAME : wazwez
+
+TASK
+id INT(6) *
+name VARCHAR()
+desc TEXT()
+date DATE
+status ENUM(ONGOING, DONE)
+userId USER.id (1,N)
+
+SUBTASK
+id INT(6) *
+name VARCHAR()
+status ENUM(ONGOING, DONE)
+taskId TASK.id (1,N)
+
+USER
+id INT(6) *
+name VARCHAR()
+avatar VARCHAR()
+
+tugas
+// DDL: create database berdasarkan struktur yg telah dibuat
+// DML: insert data sesuai db.
+// DQL: siapin query2 yg dibutuhkan untuk wazwez

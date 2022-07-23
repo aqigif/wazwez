@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Wazwez App</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <header>
+    <img src="assets/img/logo-wazwez.png" alt="logo" class="logo-brand">
+    <nav>
+      <div class="icon-notification icon"></div>
+      <div class="user-profile">
+        <div class="user-avatar">
+        </div>
+        <div class="user-name">
+          Fatir
+        </div>
+        <div class="user-arrow">
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="container" class="container padding-4 padding5">
+      <button class="button-add" onmouseenter="hoverButton()" onclick="addTask()">tambah task</button>  
+      
+      <div id="new-data-form" class="new-data hidden">
+        <input id="name" oninput="handleChange(this)"  />
+        <input id="desc" oninput="handleChange(this)"  />
+        <input id="date" oninput="handleChange(this)"  />
+      </div>
+      <ul id="list-container" class="list-container">
+        <li onclick="handleDone(this)" class="list-item">Product Design</li>
+        <li onclick="handleDone(this)" class="list-item">Belajar HTML CSS JS</li>
+      </ul>
+      
+      <div class="accordion" onclick="handleShowSubtask(this)">
+        <div class="task">ini task</div>
+        <div class="subtask hidden">ini subtask</div>
+      </div>
+      <div class="accordion" onclick="handleShowSubtask(this)">
+        <div class="task">ini task</div>
+        <div class="subtask hidden">ini subtask</div>
+      </div>
+      <!-- <input id="checkbox" type="checkbox" value="Product"> 
+      <label for="checkbox">product design</label> -->
+    </div>
+  </main>
+</body>
+
+<!-- <script src="./script.js"></script> -->
+<!-- <script src="./assets/js/dom.js"></script> -->
+<!-- <script src="./assets/js/jsFunctions.js"></script> -->
+<script>
+  function addTask() {
+    document.getElementById("new-data-form").classList.remove("hidden");
+  }
+
+  function handleShowSubtask(param) {
+    console.log(param.innerHTML)
+    if (param.innerHTML.includes("hidden")) {
+      param.innerHTML = param.innerHTML.replace("hidden", "show")
+    } else {
+      param.innerHTML = param.innerHTML.replace("show", "hidden")
+    }
+  }
+  document.addEventListener('keypress', function (e) {
+    const addFormClasslist = document.getElementById("new-data-form").classList
+    if(addFormClasslist.contains("hidden") === false) {
+      if (e.key === 'Enter') {
+        const task = {
+          name: document.getElementById("name").value,
+          desc: document.getElementById("desc").value,
+          date: document.getElementById("date").value
+        }
+        if (task?.name) {
+          handleEnter(task)
+          document.getElementById("name").value = ""
+          document.getElementById("desc").value = ""
+          document.getElementById("date").value = ""
+        } else{
+          alert("name wajib diisi")
+        }
+      }
+    }
+  });
+
+  function handleDone(params) {
+      console.log(params)
+      params.style = "text-decoration: line-through;"
+  }
+  
+  function handleEnter(task) {
+    document.getElementById("new-data-form").classList.add("hidden");
+    let listContainer = document.getElementById("list-container");
+    listContainer.insertAdjacentHTML("afterbegin", `<li class="list-item">${task.name}</li>`);
+    listContainer.insertAdjacentHTML("afterend", `<div class="accordion" onclick="handleShowSubtask(this)">
+    <div class="task">${task.name} - ${task.date}</div>
+    <div class="subtask hidden">ini subtask</div>
+  </div>`);
+  }
+  function handleChange(params) {
+    console.log(params.value);
+  }
+</script>
+  
+</html>
+
