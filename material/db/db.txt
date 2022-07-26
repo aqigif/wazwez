@@ -1,0 +1,37 @@
+// DATABASE
+
+// RDBMS => MySQL
+
+MySQL
+- bikin struktur database
+-- erd => entity realational diagram
+-- ddl => query utk create db di MySQL
+--- create
+--- alter
+--- drop
+- dml
+-- insert
+-- update
+- dql
+-- select *
+-- select column
+-- select with where condition
+-- select using join => combine two table
+
+
+MySQL => ui html css js
+
+server side rendering / fullstack
+--> MySQL
+--> ui html css js
+-----------------------> php / asp / .net / nodejs / python / golang
+
+di split
+
+backend
+--> MySQL
+-----------------------> php / asp / .net / nodejs / python / golang
+
+frontend
+--> ui html css js
+-----------------------> php / asp / .net / nodejs / python / golang
